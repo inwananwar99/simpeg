@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
 	public function index()
 	{
 		$this->load->view('welcome_message');
@@ -100,16 +85,13 @@ class Welcome extends CI_Controller {
 	public function dashboard($level){
 		if($level == 1){
 			$data = ['konten' => 'admin/dashboard'];
-			return $this->load->view('template',$data);
 		}else if($level == 2){
 			$data = ['konten' => 'pendidikan/dashboard1'];
-			return $this->load->view('pendidikan/template',$data);
 		}else if($level == 3){
 			$data = ['konten' => 'pendidikan/dashboard2'];
-			return $this->load->view('pendidikan/template',$data);
 		}else if($level == 4){
 			$data = ['konten' => 'direktur/dashboard'];
-			return $this->load->view('direktur/template',$data);
 		}
+		return $this->load->view('skydash',$data);
 	}
 }

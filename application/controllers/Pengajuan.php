@@ -8,7 +8,7 @@ class Pengajuan extends CI_Controller{
             'konten' => 'pendidikan/mutasi',
             'title' => 'mutasi'
         ];
-        $this->load->view('pendidikan/template',$data);
+        $this->load->view('skydash',$data);
     }
 
     public function addMutasi(){

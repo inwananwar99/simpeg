@@ -8,7 +8,7 @@ class User extends CI_Controller{
             'title' => 'user',
             'judul' => 'Data User'
         ];
-        $this->load->view('template',$data);
+        $this->load->view('skydash',$data);
     }
 
     public function addUser(){
@@ -42,15 +42,14 @@ class User extends CI_Controller{
 
     public function pegawai(){
         $data = [
-            'join' => $this->ModelUser->getJoin(),
+            'join' => $this->ModelUser->getJoin1(),
             'users' => $this->ModelUser->getData('user'),
             'bagian' => $this->ModelUser->getData('bagian'),
-            'pegawai' => $this->ModelUser->getData('data_pegawai'),
             'konten' => 'admin/pegawai/pegawai',
             'title' => 'pegawai',
             'judul' => 'Data Pegawai'
         ];
-        $this->load->view('template',$data);
+        $this->load->view('skydash',$data);
     }
 
     public function addPegawai(){
@@ -154,7 +153,7 @@ class User extends CI_Controller{
             'title' => 'bagian',
             'judul' => 'Data Bagian'
         ];
-        $this->load->view('template',$data);
+        $this->load->view('skydash',$data);
     }
     public function addBagian(){
         $data = [

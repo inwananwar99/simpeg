@@ -25,8 +25,15 @@ class ModelUser extends CI_Model{
     public function getJoin(){
         $this->db->select('*');
         $this->db->from('data_pegawai'); // this is first table name
+        $this->db->join('bagian', 'bagian.id_bagian = data_pegawai.id_bagian'); // this is second table name with both table ids
+        return $this->db->get()->result_array();
+    }
+
+    public function getJoin1(){
+        $this->db->select('*');
+        $this->db->from('data_pegawai'); // this is first table name
         $this->db->join('bagian', 'bagian.id_bagian = data_pegawai.nip'); // this is second table name with both table ids
-        return $this->db->get();
+        return $this->db->get()->result_array();
     }
 
     public function getJoinn($id){

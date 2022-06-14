@@ -18,16 +18,16 @@
     <tbody>
     <?php 
     $no = 1;
-    foreach ($pegawai as $d) : ?>
+    foreach ($join as $d) : ?>
         <tr>       
             <td><?= $no++;?></td>
-            <td><?= $d['NIP'];?></td>
+            <td><?= $d['nip'];?></td>
             <td><?= $d['nama_peg'];?></td>
-            <td><?= $d['Alamat']; ?></td>
-            <td><img src="<?= base_url('assets/images/'.$d['Foto']); ?>" alt="Foto Pegawai" width="100" height="100"></td>
+            <td><?= $d['alamat']; ?></td>
+            <td><img src="<?= base_url('assets/images/'.$d['foto']); ?>" alt="Foto Pegawai" width="100" height="100"></td>
             <td>
-                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#editModal<?= $d['NIP'];?>">Ubah</a>
-                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $d['NIP']?>">Hapus</a>
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#editModal<?= $d['nip'];?>">Ubah</a>
+                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $d['nip']?>">Hapus</a>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -153,8 +153,8 @@
 </div>
 </div>
 <!-- Modal Update-->
-<?php foreach ($pegawai as $d1):?>
-    <div class="modal fade" id="editModal<?= $d1['NIP']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach ($join as $d1):?>
+    <div class="modal fade" id="editModal<?= $d1['nip']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -164,12 +164,12 @@
       </button>
     </div>
     <div class="modal-body">
-        <form action="<?= base_url('User/updatePegawai/'.$d1['NIP']);?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('User/updatePegawai/'.$d1['nip']);?>" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6">
             <div class="form-group">
                <label for="">NIP</label>
-               <input type="text" name="nip" class="form-control" value="<?= $d1['NIP']?>" placeholder="NIP Pegawai ..." autofocus> 
+               <input type="text" name="nip" class="form-control" value="<?= $d1['nip']?>" placeholder="NIP Pegawai ..." autofocus> 
             </div>
             <div class="form-group">
                <label for="">Nama Pegawai</label>
@@ -177,19 +177,19 @@
             </div>
             <div class="form-group">
                <label for="">Tempat Lahir</label>
-               <input type="text" name="tempat" class="form-control" value="<?= $d1['Tempat_lahir']?>" placeholder="Tempat Lahir ..."> 
+               <input type="text" name="tempat" class="form-control" value="<?= $d1['tempat_lahir']?>" placeholder="Tempat Lahir ..."> 
             </div>
             <div class="form-group">
                <label for="">Tanggal Lahir</label>
-               <input type="date" name="tgl" class="form-control" value="<?= $d1['Tgl_lahir']?>" placeholder="Tanggal Lahir ..." autofocus> 
+               <input type="date" name="tgl" class="form-control" value="<?= $d1['tanggal_lahir']?>" placeholder="Tanggal Lahir ..." autofocus> 
             </div>
             <div class="form-group">
                <label for="">Alamat</label>
-               <input type="text" name="alamat" class="form-control" value="<?= $d1['Alamat']?>" placeholder="Alamat Pegawai..."> 
+               <input type="text" name="alamat" class="form-control" value="<?= $d1['alamat']?>" placeholder="Alamat Pegawai..."> 
             </div>
             <div class="form-group">
                <label for="">Pangkat/Golongan</label>
-               <input type="text" name="pangkat" class="form-control" value="<?= $d1['Pangkat_golongan']?>" placeholder="Pangkat/Golongan Pegawai ..."> 
+               <input type="text" name="pangkat" class="form-control" value="<?= $d1['pangkat_golongan']?>" placeholder="Pangkat/Golongan Pegawai ..."> 
             </div>
             <div class="form-group">
                <label for="">Nama Bagian</label>
@@ -204,7 +204,7 @@
             <div class="col-md-6">
             <div class="form-group">
                <label for="">Gaji</label>
-               <input type="text" name="gaji" class="form-control" value="<?= $d1['Gaji']?>" placeholder="Gaji Pegawai ..." autofocus> 
+               <input type="text" name="gaji" class="form-control" value="<?= $d1['gaji']?>" placeholder="Gaji Pegawai ..." autofocus> 
             </div>
             <div class="form-group">
                <label for="">Foto</label>
@@ -212,14 +212,14 @@
             </div>
             <div class="form-group">
                <label for="">Karpeg</label>
-               <input type="text" name="karpeg" class="form-control" value="<?= $d1['Karpeg']?>" placeholder="Karpeg ..."> 
+               <input type="text" name="karpeg" class="form-control" value="<?= $d1['karpeg']?>" placeholder="Karpeg ..."> 
             </div>
             <div class="form-group">
                <label for="">Jenis Kelamin</label>
                <select name="jk" class="form-control">
-                   <?php if($d1['Jenis_kelamin'] == 'L'){?>
+                   <?php if($d1['jenis_kelamin'] == 'L'){?>
                         <option value="L">Laki-laki</option>
-                    <?php }elseif($d1['Jenis_kelamin'] == 'P'){?>
+                    <?php }elseif($d1['jenis_kelamin'] == 'P'){?>
                         <option value="P">Perempuan</option>
                     <?php } ?>
                    <option value="L">Laki-laki</option>
@@ -229,7 +229,7 @@
             <div class="form-group">
                <label for="">Agama</label>
                <select name="agama" class="form-control">
-                   <option><?= $d1['Agama']; ?></option>
+                   <option><?= $d1['agama']; ?></option>
                    <option>Islam</option>
                    <option>Kristen</option>
                    <option>Hindu</option>
@@ -239,7 +239,7 @@
             </div>
             <div class="form-group">
                <label for="">Masa Jabatan</label>
-               <input type="text" name="masa" class="form-control" value="<?= $d1['Masa_jabatan']; ?>" placeholder="Masa Jabatan ..."> 
+               <input type="text" name="masa" class="form-control" value="<?= $d1['jabatan']; ?>" placeholder="Masa Jabatan ..."> 
             </div>
             
             </div>
@@ -256,8 +256,8 @@
 <?php endforeach;?>
 
 <!-- Modal Hapus -->
-<?php foreach ($pegawai as $d2) :?>
-<div class="modal fade" id="deleteModal<?= $d2['NIP']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach ($join as $d2) :?>
+<div class="modal fade" id="deleteModal<?= $d2['nip']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -266,7 +266,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form action="<?= base_url('User/deletePegawai/'.$d2['NIP']); ?>" method="POST">
+    <form action="<?= base_url('User/deletePegawai/'.$d2['nip']); ?>" method="POST">
         <div class="modal-body">
             <p>Apakah anda yakin ingin menghapus data ini?</p>
         </div>
